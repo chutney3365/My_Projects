@@ -28,9 +28,6 @@ WORDLIST_FILENAME = "words.txt"
 def load_words():
     """
     Returns a list of valid words. Words are strings of lowercase letters.
-    
-    Depending on the size of the word list, this function may
-    take a while to finish.
     """
     
     print("Loading word list from file...")
@@ -48,9 +45,6 @@ def get_frequency_dict(sequence):
     Returns a dictionary where the keys are elements of the sequence
     and the values are integer counts, for the number of times that
     an element is repeated in the sequence.
-
-    sequence: string or list
-    return: dictionary
     """
     
     # freqs: dictionary (element_type -> int)
@@ -98,8 +92,6 @@ def display_hand(hand):
     Should print out something like:
        a x x l l l e
     The order of the letters is unimportant.
-
-    hand: dictionary (string -> int)
     """
     print("Current hand: ", end="")
     for letter in hand.keys():
@@ -111,15 +103,7 @@ def display_hand(hand):
 def deal_hand(n):
     """
     Returns a random hand containing n lowercase letters.
-    ceil(n/3) letters in the hand should be VOWELS (note,
-    ceil(n/3) means the smallest integer not less than n/3).
-
-    Hands are represented as dictionaries. The keys are
-    letters and the values are the number of times the
-    particular letter is repeated in that hand.
-
-    n: int >= 0
-    returns: dictionary (string -> int)
+    ceil(n/3) letters in the hand should be VOWELS
     """
     
     hand={}
@@ -148,7 +132,6 @@ def update_hand(hand, word):
 
     Updates the hand: uses up the letters in the given word
     and returns the new hand, without those letters in it.
-    Has no side effects: does not modify hand.
     """
 
     updated_hand = hand.copy()
@@ -210,11 +193,6 @@ def play_hand(hand, word_list):
 
     * The hand finishes when there are no more unused letters.
       The user can also finish playing the hand by inputing two 
-      exclamation points (the string '!!') instead of a word.
-
-      hand: dictionary (string -> int)
-      word_list: list of lowercase strings
-      returns: the total score for the hand
     """
     score = 0
     while (calculate_handlen(hand) > 0):
@@ -291,8 +269,6 @@ def play_game(word_list):
                     a letter - you must play whatever hand you just had.
       
     * Returns the total score for the series of hands
-
-    word_list: list of lowercase strings
     """
     num_hands = int(input("Enter total number of hands: "))
     substituted = False
