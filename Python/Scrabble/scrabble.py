@@ -82,7 +82,7 @@ def get_word_score(word, n):
     score *= max(1, 7 * len(word) - 3 * (n - len(word)))
     return score
 
-
+    
 def display_hand(hand):
     """
     Displays the letters currently in the hand.
